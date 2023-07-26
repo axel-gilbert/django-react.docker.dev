@@ -1,7 +1,6 @@
-# Sprava - Enterprise Management Software Suite  🏢
+# django-react.docker.dev 🚀
 
-
-Sprava is a proprietary software suite for enterprise management. The project is divided into two main parts: the frontend and the backend, developed using React and Django respectively.
+This is a public repository for a project template using Django, React, and Docker. It includes a basic configuration for development and can serve as a starting point for your own applications.
 
 ## Project Structure  📂
 
