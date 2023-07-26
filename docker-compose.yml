@@ -1,0 +1,33 @@
+# Version of Docker Compose
+version: '3.8'
+services:
+  # Backend service configuration
+  backend:
+    # Builds the Docker image using the Dockerfile in the ./backend directory
+    build: ./backend
+    # Mounts the local ./backend directory to the /app directory in the container
+    volumes:
+      - ./backend:/app
+    # The command that will be run when the container starts up
+    command: "python manage.py runserver 0.0.0.0:8000"
+
+  # Frontend service configuration
+  frontend:
+    # Builds the Docker image using the Dockerfile in the ./frontend directory
+    build: ./frontend
+    # Mounts the local ./frontend directory to the /app directory in the container
+    volumes:
+      - ./frontend:/app
+    # The command that will be run when the container starts up
+    command: "npm run start"
+
+  # Nginx service configuration
+  nginx:
+    # Uses the prebuilt nginx:alpine image
+    image: nginx:alpine
+    # Mounts the local ./nginx.conf file to the /etc/nginx/nginx.conf file in the container
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    # Exposes port 80 of the container to port 80 of the host machine
+    ports:
+      - 80:80
